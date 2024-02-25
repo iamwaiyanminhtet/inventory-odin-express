@@ -1,0 +1,18 @@
+<%- include('./partials/header') %>
+<%- include('./partials/nav') %>
+
+<div class="d-flex justify-content-center">
+    <form action="/category/create" method="POST" class="row col-6">
+        <div>
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" id="title" required>
+        </div>
+        <div >
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" id="description" cols="30" rows="10" class="form-control" required></textarea>
+        </div>
+        <button type="submit" class="btn btn-success my-3 w-25">Create</button>
+    </form>
+</div>
+
+<%- include('./partials/footer') %>

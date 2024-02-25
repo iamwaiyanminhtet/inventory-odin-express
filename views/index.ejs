@@ -1,0 +1,26 @@
+<%- include('./partials/header') %>
+<%- include('./partials/nav') %>
+
+<div class="grid text-center">
+    <% if (categories.length > 0) { %>
+       <% categories.forEach(category => { %>
+        <div class="g-col-4">
+            <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title"><%= category.title %></h5>
+                  <p class="card-text"><%= category.description %></p>
+                  <div>
+                    <a href="product/<%= category._id%>" class="btn btn-primary">Show Items</a>
+                    <a href="/category/<%= category._id %>/update" class="btn btn-info">Update</a>
+                    <a href="/category/<%= category._id %>/delete" class="btn btn-danger">Delete Category</a>
+                  </div>
+                </div>
+            </div>   
+        </div>
+       <% }) %>
+    <% } else { %>
+        <h4 class="text-center">There is no category...</h4>
+    <% } %>
+</div>
+
+<%- include('./partials/footer') %>

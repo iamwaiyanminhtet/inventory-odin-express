@@ -1,0 +1,36 @@
+<%- include('./partials/header') %>
+<%- include('./partials/nav') %>
+
+<div class="d-flex justify-content-center">
+    <form action="/product/<%= item._id%>/update" method="POST" class="row col-6 gap-3">
+        <div>
+            <label for="title" class="form-label">Title</label>
+            <input type="text" name="title" class="form-control" id="title" value="<%= item.title%>" required>
+        </div>
+        <div >
+            <label for="description" class="form-label">Description</label>
+            <textarea name="description" id="description" cols="30" rows="3" class="form-control" required><%= item.description%></textarea>
+        </div>
+        <div>
+            <select class="form-select" aria-label="Default select example"  name="category" required>
+                <option disabled selected>Open this select menu</option>
+                <% categories.forEach(category => { %>
+                    <option value="<%= category._id %>" >
+                        <%= category.title %>
+                    </option>
+                <% }) %>
+            </select>
+        </div>
+        <div>
+            <label for="price" class="form-label">Price</label>
+            <input type="number" name="price" class="form-control" id="price" required value="<%= item.price%>">
+        </div>
+        <div>
+            <label for="number_in_stock" class="form-label">In Stock</label>
+            <input type="number" name="number_in_stock" class="form-control" id="number_in_stock" required value="<%= item.number_in_stock%>">
+        </div>
+        <button type="submit" class="btn btn-success my-3 w-25">Update</button>
+    </form>
+</div>
+
+<%- include('./partials/footer') %>
